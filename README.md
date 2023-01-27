@@ -1,23 +1,33 @@
-# Progressive Web App Example
+## Tic Tac Toe PWA
 
-This example uses [`next-pwa`](https://github.com/shadowwalker/next-pwa) to create a progressive web app (PWA) powered by [Workbox](https://developers.google.com/web/tools/workbox/).
+### Description
 
-## Deploy your own
+Tic Tac Toe is a simple, two-player game in which players take turns making a grid of 3x3 squares with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical or diagonal row wins the game. You can select between three different game modes, offline with the computer, offline multiplayer, and online with a friend.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/progressive-web-app&project-name=progressive-web-app&repository-name=progressive-web-app)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### Installation
 
 ```bash
-npx create-next-app --example progressive-web-app progressive-web-app
-# or
-yarn create next-app --example progressive-web-app progressive-web-app
-# or
-pnpm create next-app --example progressive-web-app progressive-web-app
+$ npm install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### First, run the development server:
+
+```bash
+$ npm run dev
+```
+
+### Run linter
+
+```bash
+$ npm run lint
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Technologies
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+- [Firebase](https://firebase.google.com/)
+
+Visit other projects in my portfolio: [https://alejandrosandi.com](https://alejandrosandi.com)
