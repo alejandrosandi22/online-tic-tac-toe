@@ -6,3 +6,19 @@ html,
 body {
   height: 100%;
 }
+
+#x-option1:checked ~ label {
+  @apply border border-yellow-600;
+}
+
+#x-option2:checked ~ label {
+  @apply border border-yellow-600;
+}
+
+#o-option1:checked ~ label {
+  @apply border border-yellow-600;
+}
+
+#o-option2:checked ~ label {
+  @apply border border-yellow-600;
+}

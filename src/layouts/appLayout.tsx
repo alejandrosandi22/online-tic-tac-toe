@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import { Inter } from '@next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function AppLayout({ children, title }: AppLayoutProps) {
   return (
@@ -37,6 +40,14 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
         <link rel='apple-touch-icon' href='/apple-icon.png'></link>
         <meta name='theme-color' content='#ffffff' />
       </Head>
+      <style jsx global>{`
+        html,
+        body {
+          font-family: ${inter.style.fontFamily}, Roboto, system-ui,
+            -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu,
+            Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+      `}</style>
       {children}
     </>
   );
