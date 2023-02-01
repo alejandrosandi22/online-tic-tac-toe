@@ -5,7 +5,7 @@ import Modal from './modal';
 export default function OnlinePlayerCard() {
   const [show, setShow] = useState<boolean>(false);
   return (
-    <div className='flex items-center gap-3'>
+    <div className='flex items-center gap-3 w-52'>
       <div className='relative w-12 h-12 rounded-full border border-gray-300'>
         <button onClick={() => setShow(true)} className='flex flex-col'>
           <img

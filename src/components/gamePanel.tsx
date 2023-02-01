@@ -1,11 +1,11 @@
-export default function GamePanel() {
+export default function GamePanel({ results }: { results: ResultsType }) {
   return (
-    <div className='flex gap-20'>
+    <div className='flex gap-10'>
       <div className='flex flex-col gap-1 items-center'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 80 80'
-          className='w-10 h-10 text-primary-700'
+          className='w-8 h-8 text-primary-700'
         >
           <path fill='none' d='M0 0h24v24H0z' />
           <path
@@ -13,13 +13,15 @@ export default function GamePanel() {
             fill='currentColor'
           />
         </svg>
-        <p className='text-primary-700 text-lg font-bold'>2 wins</p>
+        <p className='text-primary-700 text-lg font-bold'>{`${results.x} ${
+          results.x === 1 ? 'win' : 'wins'
+        }`}</p>
       </div>
       <div className='flex flex-col gap-1 items-center'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 80 80'
-          className='w-10 h-10 text-secondary-700'
+          className='w-8 h-8 text-secondary-700'
         >
           <path fill='none' d='M0 0h24v24H0z' />
           <path
@@ -27,13 +29,15 @@ export default function GamePanel() {
             fill='currentColor'
           />
         </svg>
-        <p className='text-secondary-700 text-lg font-bold'>1 win</p>
+        <p className='text-secondary-700 text-lg font-bold'>{`${results.o} ${
+          results.o === 1 ? 'win' : 'wins'
+        }`}</p>
       </div>
       <div className='flex flex-col gap-1 items-center'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'
-          className='w-10 h-10 text-primary-900'
+          className='w-8 h-8 text-primary-900'
         >
           <path fill='none' d='M0 0H24V24H0z' />
           <path
@@ -41,7 +45,9 @@ export default function GamePanel() {
             fill='currentColor'
           />
         </svg>
-        <p className='text-primary-900 text-lg font-bold'>1 draw</p>
+        <p className='text-primary-900 text-lg font-bold'>
+          {`${results.draw} ${results.draw === 1 ? 'tie' : 'ties'}`}
+        </p>
       </div>
     </div>
   );
