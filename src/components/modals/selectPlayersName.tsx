@@ -1,10 +1,38 @@
+import { PlayersDataContext } from 'context/playersData';
+import { useRouter } from 'next/router';
+import { FormEvent, useContext, useState } from 'react';
+
 export default function SelectPlayersName() {
+  const [player1, setPlayer1] = useState<string>('');
+  const [player2, setPlayer2] = useState<string>('');
+  const [gameTokenPlayer1, setGameTokenPlayer1] = useState<PlayersType>('x');
+  const [gameTokenPlayer2, setGameTokenPlayer2] = useState<PlayersType>('o');
+  const { handleSetPlayersData } = useContext(PlayersDataContext);
+  const router = useRouter();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (gameTokenPlayer1 === gameTokenPlayer2) return;
+
+    handleSetPlayersData({
+      gameStatus: true,
+      gameMode: 'multiplayer',
+      player1,
+      gameTokenPlayer1,
+      player2,
+      gameTokenPlayer2,
+    });
+
+    router.push('/play');
+  };
+
   return (
     <div className='w-full lg:w-[508px] bg-white rounded-md px-8 py-10 flex flex-col items-center justify-center border border-gray-300'>
       <h2 className='font-extrabold text-primary-900 text-3xl mb-10 text-center'>
         Players name
       </h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className='mb-2 flex items-center gap-1'>
           <label
             htmlFor='email'
@@ -13,13 +41,24 @@ export default function SelectPlayersName() {
             Player 1:
           </label>
           <input
-            type='email'
-            id='email'
+            type='text'
+            id='player1'
+            value={player1}
+            onChange={(e) => setPlayer1(e.target.value)}
             className='bg-white hover:bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus-within:outline-primary-500 block w-full p-2.5'
             required
           />
           <div>
-            <input type='radio' name='options-player1' id='x-option1' hidden />
+            <input
+              type='radio'
+              name='options-player1'
+              id='x-option1'
+              value='x'
+              onChange={(e) =>
+                setGameTokenPlayer1(e.target.value as PlayersType)
+              }
+              hidden
+            />
             <label
               htmlFor='x-option1'
               className='border border-gray-300 bg-white hover:bg-gray-100 focus:ring-[#4285F4]/50 font-medium rounded text-sm px-2.5 py-2.5 text-center inline-flex justify-center items-center'
@@ -38,7 +77,16 @@ export default function SelectPlayersName() {
             </label>
           </div>
           <div>
-            <input type='radio' name='options-player1' id='o-option1' hidden />
+            <input
+              type='radio'
+              name='options-player1'
+              id='o-option1'
+              value='o'
+              onChange={(e) =>
+                setGameTokenPlayer1(e.target.value as PlayersType)
+              }
+              hidden
+            />
             <label
               htmlFor='o-option1'
               className='border border-gray-300 bg-white hover:bg-gray-100  focus:ring-[#1da1f2]/50 font-medium rounded text-sm px-2.5 py-2.5 text-center inline-flex justify-center items-center'
@@ -65,13 +113,24 @@ export default function SelectPlayersName() {
             Player 2:
           </label>
           <input
-            type='email'
-            id='email'
+            type='text'
+            id='player2'
+            value={player2}
+            onChange={(e) => setPlayer2(e.target.value)}
             className='bg-white hover:bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus-within:outline-primary-500 block w-full p-2.5'
             required
           />
           <div>
-            <input type='radio' name='options-player2' id='x-option2' hidden />
+            <input
+              type='radio'
+              name='options-player2'
+              id='x-option2'
+              value='x'
+              onChange={(e) =>
+                setGameTokenPlayer2(e.target.value as PlayersType)
+              }
+              hidden
+            />
             <label
               htmlFor='x-option2'
               className='border border-gray-300 bg-white hover:bg-gray-100 focus:ring-[#4285F4]/50 font-medium rounded text-sm px-2.5 py-2.5 text-center inline-flex justify-center items-center'
@@ -90,7 +149,16 @@ export default function SelectPlayersName() {
             </label>
           </div>
           <div>
-            <input type='radio' name='options-player2' id='o-option2' hidden />
+            <input
+              type='radio'
+              name='options-player2'
+              value='o'
+              onChange={(e) =>
+                setGameTokenPlayer2(e.target.value as PlayersType)
+              }
+              id='o-option2'
+              hidden
+            />
             <label
               htmlFor='o-option2'
               className='border border-gray-300 bg-white hover:bg-gray-100  focus:ring-[#1da1f2]/50 font-medium rounded text-sm px-2.5 py-2.5 text-center inline-flex justify-center items-center'

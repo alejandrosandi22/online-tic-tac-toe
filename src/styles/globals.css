@@ -22,3 +22,9 @@ body {
 #o-option2:checked ~ label {
   @apply border border-yellow-600;
 }
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 20px;
+  }
+}
